@@ -166,48 +166,6 @@ const main = document.querySelector("main");
 
 let light = false;
 
-// function toggleAnimation() {
-//   light = !light;
-
-//   //clone the body
-//   let clone = bigWrapper.cloneNode(true);
-//   //set ture in the parameter will clone all the descendants as well. otherwise the default is only cloning the next layer
-//   let bgdiv = clone.querySelector(".bgdiv");
-//   let alpha = clone.querySelector(".alpha");
-
-//   if (light === true) {
-//     alpha.classList.remove("darkTheme");
-//     alpha.classList.add("lightTheme");
-
-//     // document.getElementsByClassName("jslightbg").style.zIndex = "-7";
-//   } else {
-//     alpha.classList.remove("lightTheme");
-//     alpha.classList.add("darkTheme");
-//   }
-//   clone.classList.add("copy");
-//   // console.log(img);
-//   main.appendChild(clone);
-
-//   // document.body.classList.add("noScrolling");
-
-//   //this is bg change
-//   // if (light === true) {
-//   //   bgdiv.getElementsByTagName("img")[0].src = "/images/web bg_bg light.jpg";
-//   // } else {
-//   //   bgdiv.getElementsByTagName("img")[0].src = "/images/web bg_bg dark.jpg";
-//   // }
-
-//   clone.addEventListener("animationend", () => {
-//     // document.body.classList.remove("noScrolling");
-//     bigWrapper.remove();
-//     clone.classList.remove("copy");
-
-//     //reset variables
-//     declare();
-//     events();
-//   });
-// }
-
 function events() {
   // toggleButton.addEventListener("click", toggleAnimation);
   hambugerMenu.addEventListener("click", () => {
@@ -230,3 +188,33 @@ function events() {
 events();
 
 // console.log(toggleButton, bigWrapper, main);
+
+//download
+function downloadWhitepaper2023() {
+  // Define the URL of the PDF file
+  let pdfUrl =
+    "portfolio files/graphics/On the road to Net Zero InfoLink White Paper 2023.pdf";
+
+  fetch(pdfUrl)
+    .then((response) => response.blob())
+    .then((blob) => {
+      // Create a blob URL for the PDF data
+      var url = window.URL.createObjectURL(blob);
+
+      // Create a link element to trigger the download
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "On the road to Net Zero InfoLink White Paper 2023.pdf"; // Set the desired file name
+      document.body.appendChild(a);
+
+      // Trigger a click event on the link element to initiate the download
+      a.click();
+
+      // Clean up by revoking the blob URL and removing the link element
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    })
+    .catch((error) => {
+      console.error("Failed to download the PDF file: ", error);
+    });
+}
