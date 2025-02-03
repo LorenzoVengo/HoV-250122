@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #191919;
+      }
+      @media(prefers-color-scheme: dark){.cls-1{fill:#ffffff;}}
+    </style>
+  </defs>
+  <polygon class="cls-1" points="85.34 112.67 85.34 262 128.45 187.33 128.45 38 85.34 112.67"/>
+  <polygon class="cls-1" points="171.55 112.67 171.55 262 214.66 187.33 214.66 38 171.55 112.67"/>
+</svg>
