@@ -331,7 +331,6 @@ a {
 
 .beta.mid .gamma video {
   pointer-events: none;
-
   position: absolute;
   height: 100%;
   width: 100%;
@@ -344,12 +343,12 @@ a {
   /* cursor: pointer; */
 }
 
-.beta.mid .gamma.one img {
+.beta.mid .gamma.one img,
+.beta.mid .gamma.two img,
+.beta.mid .gamma.four img {
   filter: saturate(100%);
 }
-.beta.mid .gamma.two img {
-  filter: saturate(100%);
-}
+
 .beta.mid .gamma.three img {
   filter: saturate(100%);
   transform: scale(1.25);
@@ -551,12 +550,9 @@ a {
   align-items: end;
   justify-content: center;
   width: 85%;
-
   height: 85%;
-
   position: absolute;
   filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.5));
-
   pointer-events: auto;
 }
 
