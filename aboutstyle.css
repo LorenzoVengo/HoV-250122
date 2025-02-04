@@ -472,6 +472,10 @@ body {
 }
 
 @media screen and (max-width: 680px) {
+  html {
+    font-size: 50%;
+  }
+
   .alpha {
     min-height: 100vh;
     max-height: 300vh;
@@ -479,8 +483,8 @@ body {
     grid-template-rows:
       minmax(800px, auto)
       minmax(800px, 1.5fr)
-      minmax(800px, 1.5fr);
-    overflow: hidden;
+      minmax(800px, auto);
+    overflow: auto;
   }
 
   .beta.left {
@@ -501,7 +505,7 @@ body {
     grid-column: span 1;
     grid-row: 3;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 3fr;
   }
 
   #profilepic {

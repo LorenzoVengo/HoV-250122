@@ -1155,6 +1155,14 @@ a {
 }
 
 @media screen and (max-width: 630px) {
+  html {
+    font-size: 50%;
+  }
+
+  .links.right .upperrightlogo img {
+    height: 24px;
+  }
+
   .beta.mid {
     max-width: calc(100vw - 20rem);
     margin-left: 10rem;
