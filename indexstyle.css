@@ -301,6 +301,7 @@ a {
 }
 
 .imgimg {
+  fill: white;
   pointer-events: none;
   width: 30rem;
   display: block;
@@ -772,6 +773,8 @@ a {
     z-index: 7;
   }
 }
+
+/* phone */
 
 @media screen and (max-width: 630px) {
   html {

@@ -993,20 +993,47 @@ a {
   }
 }
 
-@media screen and (max-width: 690px) {
+/* phone */
+
+@media screen and (max-width: 630px) {
+  #x {
+    position: absolute;
+    width: 1.3rem;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 5%;
+    pointer-events: none;
+    opacity: 75%;
+    transition: opacity 0.5s ease-in-out;
+  }
+
   html {
     font-size: 50%;
   }
 
   .links.right .upperrightlogo img {
-    height: 24px;
+    height: 23px;
+  }
+
+  .links.right ul {
+    grid-template-columns: 2fr 3fr;
   }
 
   .beta.mid {
-    max-width: calc(100vw - 20rem);
-    margin-left: 10rem;
-    margin-right: 10rem;
+    max-width: calc(100vw - 10rem);
+    margin-left: 5rem;
+    margin-right: 5rem;
     grid-template-columns: 1fr;
+  }
+
+  .topbg {
+    position: absolute;
+    display: sticky;
+    top: 0;
+    background-color: var(--darkGray);
+    height: calc(50px + 7rem);
+    width: calc(100% - 3rem);
+    z-index: 10;
   }
 
   .w-1,
@@ -1030,13 +1057,13 @@ a {
 
   .beta.top {
     /* max-width: calc(100vw - 20rem); */
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
 
   .beta.bottom {
     position: relative;
-    max-width: calc(100vw - 20rem);
+    max-width: calc(100vw - 10rem);
     margin-left: auto;
     margin-right: auto;
     z-index: 10;
