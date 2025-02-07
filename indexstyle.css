@@ -394,11 +394,13 @@ a {
   transition: 0.3s;
 }
 
-.sunButton svg {
-  fill: var(--midBlue);
-}
-
+.sunButton svg,
 .moonButton svg {
+  display: block;
+  align-self: center;
+  justify-self: center;
+  height: 3rem;
+  width: 3rem;
   fill: var(--midBlue);
 }
 
@@ -420,13 +422,6 @@ a {
 
 .alpha.darkTheme .toggleButton button:first-child {
   display: none;
-}
-
-.toggleButton svg {
-  display: block;
-  width: 1.9rem;
-  align-self: center;
-  justify-self: center;
 }
 
 .footer {
@@ -811,7 +806,7 @@ a {
   }
   .beta.top {
     /* max-width: calc(100vw - 20rem); */
-    margin: 0 10rem;
+    margin: 0 5rem;
   }
 
   .beta.bottom {
