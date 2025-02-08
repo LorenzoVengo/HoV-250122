@@ -91,6 +91,7 @@ chrisContainer.addEventListener("click", (e) => {
   document.body.prepend(blockdiv);
   blockdiv.classList.add("blockdiv");
   hideChris();
+  lightboxImg.src = " ";
 
   chrisText.style.pointerEvents = "none";
   chrisTitle.style.pointerEvents = "none";
