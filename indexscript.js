@@ -46,9 +46,17 @@ function toggleAnimation() {
   // document.body.classList.add("noScrolling");
 
   if (light === true) {
-    bgdiv.getElementsByTagName("img")[0].src = "images/web bg_bg light.jpg";
+    // bgdiv.getElementsByTagName("img")[0].src = "images/webbg_bglight.png";
+    bgdiv.getElementsByTagName("img")[0].srcset =
+      "images/webbg_bglight.png 3840w, images/webbg_bglight1920.png 1920w, images/webbg_bglight540vert.png  540w";
+    bgdiv.getElementsByTagName("img")[0].sizes =
+      "(max-width: 630px) 540px, 100vw";
   } else {
-    bgdiv.getElementsByTagName("img")[0].src = "images/web bg_bg dark.jpg";
+    // bgdiv.getElementsByTagName("img")[0].src = "images/web bg_bg dark.jpg";
+    bgdiv.getElementsByTagName("img")[0].srcset =
+      "images/webbg_bgdark.png 3840w, images/webbg_bgdark1920.png 1920w, images/webbg_bgdark540vert.png  540w";
+    bgdiv.getElementsByTagName("img")[0].sizes =
+      "(max-width: 630px) 540px, 100vw";
   }
 
   clone.addEventListener("animationend", () => {
