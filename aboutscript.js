@@ -107,7 +107,7 @@ function ok() {
 
   if (input === td) {
     // Define the URL of the PDF file
-    let pdfUrl = "portfolio files/Resume Lorenzo 250123.pdf";
+    let pdfUrl = "portfolio files/Resume Lorenzo.pdf";
 
     fetch(pdfUrl)
       .then((response) => response.blob())
