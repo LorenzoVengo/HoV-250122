@@ -58,38 +58,39 @@ clear.addEventListener("click", () => {
 // 初始化：設定第一組輸入欄位的監聽器
 setupSecondLastInputWatcher();
 
-// function handleInput(e) {
-//   input = e.target.value;
-//   console.log(chart1);
-//   console.log(inputs);
-//   console.log(e.target.value);
-//   // console.log(chart1.nth - last - chile(2).value);
-// }
-
-// 將 mmssSS 字串轉換為毫秒數
+// 將 hhmmssFF 字串轉換為毫秒數
 function customTimeToMilliseconds(str) {
-  const padded = str.padStart(6, "0"); // 補滿6位數
-  const mm = parseInt(padded.slice(0, 2));
-  const ss = parseInt(padded.slice(2, 4));
-  const ms = parseInt(padded.slice(4, 6));
+  const padded = str.padStart(8, "0"); // 補滿8位數
+  const hh = parseInt(padded.slice(0, 2));
+  const mm = parseInt(padded.slice(2, 4));
+  const ss = parseInt(padded.slice(4, 6));
+  const FF = parseInt(padded.slice(6, 8)); // 這是百分之一秒（兩位數）
 
-  return mm * 60000 + ss * 1000 + ms * 10;
+  return (
+    hh * 3600000 + // 小時轉毫秒
+    mm * 60000 + // 分鐘轉毫秒
+    ss * 1000 + // 秒轉毫秒
+    FF * 10 // 百分之一秒 → 毫秒
+  );
 }
 
-// 將毫秒轉換回 MM:SS.SS 字串
-function millisecondsToDisplay(ms) {
+// 將毫秒轉換為 HHMMSSFF 格式字串（FF 為百分之一秒）
+function millisecondsToHHMMSSFF(ms) {
   const totalSeconds = Math.floor(ms / 1000);
-  const minutes = Math.floor(totalSeconds / 60);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
-  const milliseconds = Math.floor((ms % 1000) / 10); // 轉成兩位數
+  const hundredths = Math.floor((ms % 1000) / 10); // 百分之一秒
 
+  const hh = hours.toString().padStart(2, "0");
   const mm = minutes.toString().padStart(2, "0");
   const ss = seconds.toString().padStart(2, "0");
-  const msStr = milliseconds.toString().padStart(2, "0");
+  const ll = hundredths.toString().padStart(2, "0");
 
-  return `${mm}:${ss}.${msStr}`;
+  return `${hh}:${mm}:${ss}:${ll}`;
 }
 
+// 將毫秒轉換回 HH:MM:SS:FF（FF為60fps影格）
 function millisecondsToPremiereFormat(ms) {
   const totalSeconds = Math.floor(ms / 1000);
   const hours = Math.floor(totalSeconds / 3600);
@@ -97,7 +98,8 @@ function millisecondsToPremiereFormat(ms) {
   const seconds = totalSeconds % 60;
   const milliseconds = ms % 1000;
 
-  const frames = Math.round((milliseconds / 1000) * 60);
+  // 60fps影格計算：毫秒除以1000再乘60fps
+  const frames = Math.floor((milliseconds / 1000) * 60);
 
   const hh = hours.toString().padStart(2, "0");
   const mm = minutes.toString().padStart(2, "0");
@@ -107,48 +109,35 @@ function millisecondsToPremiereFormat(ms) {
   return `${hh}:${mm}:${ss}:${ff}`;
 }
 
-// 點擊 Done 時計算累積總時間
-done.addEventListener("click", () => {
+// 將 done 的功能抽成函式，方便重複使用
+function calculateSums() {
   const inputs = document.querySelectorAll(".inputBox");
   const sums = document.querySelectorAll(".sum");
   const premieres = document.querySelectorAll(".premiere");
 
   let totalMilliseconds = 0;
 
+  // 確保輸入值為8位數，不足補零
   inputs.forEach((input, index) => {
-    const raw = input.value.trim();
-    if (raw === "") return;
+    const rawInput = input.value.trim();
+    if (rawInput === "") return;
 
-    const ms = customTimeToMilliseconds(raw);
+    // 補零計算用，但不改變 input.value
+    const paddedInput = rawInput.padStart(8, "0");
+
+    const ms = customTimeToMilliseconds(paddedInput);
     totalMilliseconds += ms;
 
-    // 原本 Sum 欄位（MM:SS.SS）
-    sums[index].innerText = millisecondsToDisplay(totalMilliseconds);
+    // sum 欄位改成 HHMMSSFF 格式字串
+    sums[index].innerText = millisecondsToHHMMSSFF(totalMilliseconds);
 
-    // 新增 Premiere 欄位（MM:SS:FF） - 60fps 格式
-    const premiereTime = millisecondsToPremiereFormat(totalMilliseconds);
-    premieres[index].innerText = premiereTime;
-  });
-});
-
-// 將 done 的功能抽成函式
-function calculateSums() {
-  const inputs = document.querySelectorAll(".inputBox");
-  const sums = document.querySelectorAll(".sum");
-
-  let totalMilliseconds = 0;
-
-  inputs.forEach((input, index) => {
-    const raw = input.value.trim();
-    if (raw === "") return;
-
-    const ms = customTimeToMilliseconds(raw);
-    totalMilliseconds += ms;
-    sums[index].innerText = millisecondsToDisplay(totalMilliseconds);
+    // premiere 欄位維持 HH:MM:SS:FF 格式（60fps影格）
+    premieres[index].innerText =
+      millisecondsToPremiereFormat(totalMilliseconds);
   });
 }
 
-// 按下 done 鍵時觸發
+// 點擊 Done 時計算累積總時間
 done.addEventListener("click", calculateSums);
 
 // ⭐ 新增：按下 Enter 也執行計算
