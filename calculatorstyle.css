@@ -1,0 +1,163 @@
+@import url("https://use.typekit.net/gbd0sbq.css");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+html {
+  margin: 0px;
+  padding: 0px;
+  font-size: 62.5%;
+  font-weight: 400;
+  font-family: futura-pt, sans-serif;
+  font-style: normal;
+  font-kerning: normal;
+  background: var(--darkGray);
+}
+
+.divone {
+  margin: 5%;
+  display: flex;
+  font-size: 2rem;
+  height: 100;
+  width: 100;
+  background: var(--darkGray);
+}
+
+.title {
+  border-bottom: 1px solid var(--midGray);
+  padding-bottom: 15px;
+}
+
+.divtwo {
+  margin: 0 5%;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  height: 100;
+  width: 100;
+  font-size: 2rem;
+}
+
+.chart1,
+.chart2,
+.chart3 {
+  border-bottom: 1px solid var(--midGray);
+  margin: 10px 0 15px 0;
+  display: grid;
+}
+
+.inputdiv {
+  padding: 10px 0;
+  font-size: 2rem;
+}
+
+.sum {
+  display: flex;
+  align-items: center; /* 垂直置中 */
+  height: 50px; /* 建議設定固定高度，跟 .inputdiv 一樣 */
+}
+
+.chart1 > div {
+  height: 50px; /* 或你想要的固定高度 */
+}
+.chart2 > div {
+  height: 50px; /* 或你想要的固定高度 */
+}
+.chart3 > div {
+  height: 50px; /* 或你想要的固定高度 */
+  align-items: center;
+  padding: 10px 0;
+  font-size: 2rem;
+}
+
+.inputdiv:nth-child(even),
+.sum:nth-child(even),
+.premiere:nth-child(even) {
+  background-color: var(--midDarkGray);
+}
+
+.inputdiv {
+  align-items: center;
+  display: flex;
+}
+
+.inputdiv > label {
+  white-space: nowrap;
+  width: 20%;
+  margin-left: 13px;
+  padding: 5px 12px;
+}
+
+.inputBox {
+  margin: 0 50px 0 30px;
+  font-weight: 400;
+  padding: 5px 12px;
+  font-family: futura-pt, sans-serif;
+  font-style: normal;
+  font-kerning: normal;
+  background: var(--black);
+  border: none;
+  outline: none;
+  width: 80%;
+  font-size: 2rem;
+  text-align: right;
+}
+
+.buttondiv > button {
+  font-weight: 400;
+  font-family: futura-pt, sans-serif;
+  font-style: normal;
+  font-kerning: normal;
+  background: var(--midGray);
+  border: none;
+  outline: none;
+  width: 100px;
+  font-size: 2rem;
+  padding: 5px;
+  margin: 30px 70px 30px 0;
+}
+
+.buttondiv > button:hover,
+.buttondiv > button:focus-visible {
+  background-color: var(--darkBlue);
+  cursor: pointer; /* Change cursor to a hand icon on hover */
+}
+.buttondiv > button:active {
+  background-color: var(--midBlue);
+  cursor: pointer; /* Change cursor to a hand icon on hover */
+}
+
+/* default */
+
+/* body {
+  height: 90vh;
+  margin: 3rem auto;
+  width: 100vw;
+  font-family: futura;
+  background-color: #191919;
+  position: relative;
+  overflow-x: hidden;
+} */
+
+:root {
+  --lightBlue: #abc3e5;
+  --midBlue: #5b7da5;
+  --darkBlue: #2d4f70;
+  --beige: #fff7de;
+  --darkGray: #191919;
+  --midDarkGray: #252525;
+  --midGray: #363636;
+  --lightGray: #575757;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+/* .noScrolling {
+  height: 100%;
+  overflow: hidden;
+} */
