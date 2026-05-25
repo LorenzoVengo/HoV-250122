@@ -312,7 +312,8 @@ a {
   height: 100%;
   background-color: transparent;
   backdrop-filter: none;
-  transition: backdrop-filter 1.5s ease-out 1.1s,
+  transition:
+    backdrop-filter 1.5s ease-out 1.1s,
     background-color 5s ease-in-out;
 }
 
@@ -332,7 +333,9 @@ a {
   display: block;
   transform: scale(1);
   filter: saturate(100%);
-  transition: transform 1.9s ease-in-out, filter 0.9s ease-in;
+  transition:
+    transform 1.9s ease-in-out,
+    filter 0.9s ease-in;
 
   /* cursor: pointer; */
 }
@@ -356,12 +359,12 @@ a {
 }
 .beta.mid .gamma svg .path1 {
   fill: url(#a);
-  mix-blend-mode: plus-lighter;
+  mix-blend-mode: screen;
   opacity: 100%;
 }
 .beta.mid .gamma svg .path2 {
   fill: url(#b);
-  mix-blend-mode: plus-lighter;
+  mix-blend-mode: screen;
   opacity: 75%;
 }
 .beta.mid .gamma:hover svg .path3 {
@@ -378,7 +381,10 @@ a {
 #wkndwhite,
 #ladysmanwhite,
 #crookedwhite,
-#vinochwhite {
+#vinochwhite,
+#bawhite,
+#milkdecowhite,
+#renaissancewhite {
   transition: fill 1.9s ease-in-out;
   fill: var(--white);
   z-index: 10;
@@ -388,7 +394,10 @@ a {
 .beta.mid .gamma:hover #wkndwhite,
 .beta.mid .gamma:hover #ladysmanwhite,
 .beta.mid .gamma:hover #crookedwhite,
-.beta.mid .gamma:hover #vinochwhite {
+.beta.mid .gamma:hover #vinochwhite,
+.beta.mid .gamma:hover #babelwhite,
+.beta.mid .gamma:hover #milkdecowhite,
+.beta.mid .gamma:hover #renaissancewhite {
   fill: transparent;
   z-index: 10;
 }
@@ -398,8 +407,13 @@ a {
 #ladysmangray,
 #crookedgray,
 #southgray .path3,
-#vinochgray {
-  transition: fill 1.9s ease-in-out, opacity 1.9s ease-in-out;
+#vinochgray,
+#babelgray,
+#milkdecogray,
+#renaissancegray {
+  transition:
+    fill 1.9s ease-in-out,
+    opacity 1.9s ease-in-out;
   mix-blend-mode: multiply;
   opacity: 1;
   fill: #ccc;
@@ -421,7 +435,10 @@ a {
 .beta.mid .gamma:hover #wkndgray,
 .beta.mid .gamma:hover #ladysmanhgray,
 .beta.mid .gamma:hover #crookedgray,
-.beta.mid .gamma:hover #vinochgray {
+.beta.mid .gamma:hover #vinochgray,
+.beta.mid .gamma:hover #babelgray,
+.beta.mid .gamma:hover #milkdecogray,
+.beta.mid .gamma:hover #renaissancegray {
   mix-blend-mode: multiply;
   opacity: 0.7;
 }
@@ -475,7 +492,9 @@ a {
 .beta.mid .gamma.pink img:last-of-type,
 .beta.mid .gamma.butcher img:last-of-type {
   opacity: 0;
-  transition: opacity 1.9s ease-in-out, transform 1.9s ease-in-out;
+  transition:
+    opacity 1.9s ease-in-out,
+    transform 1.9s ease-in-out;
 }
 .beta.mid .gamma.twist:hover img:last-of-type,
 .beta.mid .gamma.room:hover img:last-of-type,
@@ -615,7 +634,9 @@ a {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, background-color 2.9s ease-out,
+  transition:
+    opacity 0.5s ease-in-out,
+    background-color 2.9s ease-out,
     backdrop-filter 5s ease-out;
 }
 
@@ -727,7 +748,9 @@ a {
   cursor: pointer;
   font-size: 1.6rem;
   letter-spacing: 0.07rem;
-  transition: background-color 390ms ease-in-out, color 390ms ease-in-out;
+  transition:
+    background-color 390ms ease-in-out,
+    color 390ms ease-in-out;
 }
 
 .chrisBtn.active:focus-visible {
